@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { useParams } from "react-router-dom";
 import products from "../assets/data/products";
@@ -8,7 +8,7 @@ import "../styles/product-details.css";
 import { motion } from "framer-motion";
 import ProductsList from "../components/UI/ProductsList";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../redux/slices/cartSlice";
+import cartSlice, { cartActions } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 
 const ProductDetails = () => {
@@ -40,6 +40,7 @@ const ProductDetails = () => {
 
     const reviewUserName = reviewUser.current.value;
     const reviewUserMgs = reviewMsg.current.value;
+    console.log(reviewUserName, reviewUserMgs);
   };
 
   const addToCart = () => {
@@ -54,6 +55,10 @@ const ProductDetails = () => {
 
     toast.success("Product added successfully");
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [product]);
 
   return (
     <Helmet title={productName}>
@@ -153,7 +158,7 @@ const ProductDetails = () => {
                               ref={reviewUser}
                             />
                           </div>
-                          <div className="form__group d-flex align-items-center gap-5">
+                          <div className="form__group d-flex align-items-center gap-5 rating__group">
                             <span>
                               1<i class="ri-star-s-fill"></i>
                             </span>
