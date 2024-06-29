@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 
 const AllOrders = () => {
   const { data: ordersData, loading } = useGetData("orders");
+  console.log(ordersData);
 
   return (
     <section>
@@ -13,10 +14,10 @@ const AllOrders = () => {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Price</th>
+                  <th>Id</th>
+                  <th>Images</th>
+                  <th>Items Quantity</th>
+                  <th>Total Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -26,11 +27,16 @@ const AllOrders = () => {
                   ordersData.map((item) => (
                     <tr key={item.id}>
                       <td>
-                        <img src={item.imgUrl} alt="" />
+                        {item.id}
                       </td>
-                      <td>{item.title}</td>
-                      <td>{item.category}</td>
-                      <td>${item.price}</td>
+                      <td>
+                        {item.items.map((i) =>(
+                          <img src={i.imgUrl} alt="" />
+                        ))}
+                      </td>
+                      <td>{item.quantity}</td>
+                      <td>$ {item.amount}</td>
+
                     </tr>
                   ))
                 )}

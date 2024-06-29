@@ -21,10 +21,6 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   useEffect(()=> {
-    console.log(cartItems);
-    console.log(totalQty);
-    console.log(totalAmount);
-
 
   },[navigate, cartItems])
 
@@ -33,7 +29,9 @@ const Checkout = () => {
     e.preventDefault();
     try {
       const docRef = await addDoc(collection(db, "orders"), {
-        items: cartItems
+        items: cartItems,
+        amount: totalAmount,
+        quantity: totalQty  
       })
       console.log("Document written with Id: " + docRef.id)
       
