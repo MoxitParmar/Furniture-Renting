@@ -13,6 +13,7 @@ import AddProducts from "../admin/AddProducts";
 import AllProducts from "../admin/AllProducts";
 import Dashboard from "../admin/Dashboard";
 import Users from "../admin/Users";
+import AllOrders from "../admin/AllOrders";
 
 const Routers = () => {
   return (
@@ -28,6 +29,7 @@ const Routers = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="dashboard/all-products" element={<AllProducts />} />
         <Route path="dashboard/add-products" element={<AddProducts />} />
+        <Route path="dashboard/all-orders" element={<AllOrders />} />
         <Route path="dashboard/users" element={<Users />} />
       </Route>
 
