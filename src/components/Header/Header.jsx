@@ -10,6 +10,7 @@ import userIcon from "../../assets/images/user-icon.png";
 
 import { Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
+import useAuth from "../../custom-hooks/useAuth";
 
 const nav__links = [
   {
@@ -31,6 +32,7 @@ const Header = () => {
 
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
@@ -96,7 +98,11 @@ const Header = () => {
               </span>
 
               <span>
-                <motion.img whileTap={{ scale: 1.2 }} src={userIcon} alt="" />
+                <motion.img
+                  whileTap={{ scale: 1.2 }}
+                  src={currentUser ? currentUser.photoURL : userIcon}
+                  alt=""
+                />
               </span>
               <div className="mobile__menu">
                 <span onClick={menuToggle}>
