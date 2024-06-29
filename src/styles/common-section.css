@@ -1,0 +1,14 @@
+.common__section {
+  background: linear-gradient(#00000062, #00000062),
+    url("../assets/images/bg-house.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 100px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.common__section h1 {
+  color: #fff;
+  font-weight: 600;
+}
