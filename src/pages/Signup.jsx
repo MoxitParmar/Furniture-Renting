@@ -8,12 +8,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <Helmet title="Login">
+    <Helmet title="Signup">
       <section>
         <Container>
           <Row>
             <Col lg="6" className="m-auto text-center">
-              <h3 className="fw-bold mb-4">Login</h3>
+              <h3 className="fw-bold mb-4">Signup</h3>
 
               <Form className="auth__form">
                 <FormGroup className="form__group">
@@ -34,11 +34,10 @@ const Signup = () => {
                 </FormGroup>
 
                 <button type="submit" className="buy__btn auth__btn">
-                  Login
+                  Create an Account
                 </button>
                 <p>
-                  Don't have an account?{" "}
-                  <Link to="/signup">Create an account</Link>{" "}
+                  Already have an account? <Link to="/login">Login</Link>{" "}
                 </p>
               </Form>
             </Col>
