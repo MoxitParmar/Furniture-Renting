@@ -1,14 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 
 import "../styles/checkout.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { db, storage } from "../firebase.config";
+import { addDoc, collection } from "firebase/firestore";
+import { cartActions } from "../redux/slices/cartSlice";
+import { toast } from "react-toastify";
+
 
 const Checkout = () => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const totalQty = useSelector((state) => state.cart.totalQuantity);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(()=> {
+    console.log(cartItems);
+    console.log(totalQty);
+    console.log(totalAmount);
+
+
+  },[navigate, cartItems])
+
+
+  const placeOrder = async (e) => {
+    e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, "orders"), {
+        items: cartItems
+      })
+      console.log("Document written with Id: " + docRef.id)
+      
+    } catch (error) {
+      console.log("Error: " +error)
+    }
+    toast.success("order successfully added!");
+
+    dispatch(cartActions.reset());
+    navigate("/");
+
+  }
 
   return (
     <Helmet title="Checkout">
@@ -68,7 +105,9 @@ const Checkout = () => {
                 <h4>
                   Total Cost: <span>${totalAmount}</span>
                 </h4>
-                <button className="buy__btn auth__btn  w-100">
+                <button 
+                  onClick = {placeOrder}
+                className="buy__btn auth__btn  w-100">
                   Place an oder
                 </button>
               </div>

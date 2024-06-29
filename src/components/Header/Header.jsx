@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import "./header.css";
@@ -34,6 +34,8 @@ const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const profileActionRef = useRef(null);
+
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -74,9 +76,10 @@ const Header = () => {
     navigate("/cart");
   };
 
-  const toggleProfileActions = () =>
-    profileActionRef.current.classList.toggle("show__profileActions");
-
+  const toggleProfileActions = () => {
+    setToggleMenu(!toggleMenu)
+    profileActionRef.current.classList.toggle("show__profileActions");}
+console.log('toggleMenu:', toggleMenu)
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -125,9 +128,10 @@ const Header = () => {
                 />
 
                 <div
-                  className="profile__action"
+                  className={`${toggleMenu ? 'profile__action' : 'profile__actions'}`}
                   ref={profileActionRef}
                   onClick={toggleProfileActions}
+                  
                 >
                   {currentUser ? (
                     <span onClick={logout}>Logout</span>

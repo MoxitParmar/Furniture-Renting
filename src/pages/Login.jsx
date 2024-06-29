@@ -29,7 +29,10 @@ const Login = () => {
       console.log(user);
       setLoading(false);
       toast.success("Successfully logged in");
-      navigate("/checkout");
+      if (user.email === "admin@admin.com"){
+        navigate("/dashboard");
+      }
+      else navigate("/checkout");
     } catch (error) {
       setLoading(false);
       toast.error(error.message);

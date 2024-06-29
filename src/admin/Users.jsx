@@ -35,7 +35,7 @@ const User = () => {
                 {loading ? (
                   <h5 className="pt-5 fw-bold">Loading....</h5>
                 ) : (
-                  useGetData?.map((user) => (
+                  usersData?.map((user) => (
                     <tr key={user.uid}>
                       <td>
                         <img src={user.photoURL} alt="" />

@@ -33,9 +33,9 @@ const AdminNav = () => {
         <div className="admin__nav-top">
           <Container>
             <div className="admin__nav-wrapper-top">
-              <div className="logo">
+              <a href="/home" className="logo">
                 <h2>Multimart</h2>
-              </div>
+              </a>
 
               <div className="search__box">
                 <input type="text" placeholder="Search....." />
