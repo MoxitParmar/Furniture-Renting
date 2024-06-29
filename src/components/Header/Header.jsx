@@ -11,6 +11,7 @@ import userIcon from "../../assets/images/user-icon.png";
 import { Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import useAuth from "../../custom-hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const nav__links = [
   {
@@ -29,6 +30,7 @@ const nav__links = [
 const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileActionRef = useRef(null);
 
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -57,6 +59,9 @@ const Header = () => {
   const navigateToCart = () => {
     navigate("/cart");
   };
+
+  const toggleProfileActions = () =>
+    profileActionRef.current.classList.toggle("show__profileActions");
 
   return (
     <header className="header" ref={headerRef}>
@@ -97,13 +102,29 @@ const Header = () => {
                 <span className="badge">{totalQuantity}</span>
               </span>
 
-              <span>
+              <div className="profile">
                 <motion.img
                   whileTap={{ scale: 1.2 }}
                   src={currentUser ? currentUser.photoURL : userIcon}
                   alt=""
+                  onClick={toggleProfileActions}
                 />
-              </span>
+
+                <div
+                  className="profile__action"
+                  ref={profileActionRef}
+                  onClick={toggleProfileActions}
+                >
+                  {currentUser ? (
+                    <span>Logout</span>
+                  ) : (
+                    <div>
+                      <Link to="/signup">Signup</Link>
+                      <Link to="/login">Login</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="mobile__menu">
                 <span onClick={menuToggle}>
                   <i class="ri-menu-line"></i>
