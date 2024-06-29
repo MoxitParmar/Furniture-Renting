@@ -24,7 +24,6 @@ https://furniture-renting1.vercel.app/home
 - Firebase
 - firebase Authentication
 - react-dom-router
-- react-bootstrap
 - state management using Redux Toolkit
 
 ## How can you clone and tweak this project?
