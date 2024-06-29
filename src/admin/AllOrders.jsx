@@ -35,7 +35,7 @@ const AllOrders = () => {
                         ))}
                       </td>
                       <td>{item.quantity}</td>
-                      <td>$ {item.amount}</td>
+                      <td>₹{item.amount}</td>
 
                     </tr>
                   ))

@@ -88,7 +88,7 @@ console.log('toggleMenu:', toggleMenu)
             <div className="logo">
               <img src={logo} alt="logo" />
               <div>
-                <h1>Multimart</h1>
+                <h1>Rentmart</h1>
               </div>
             </div>
 

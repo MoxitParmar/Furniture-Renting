@@ -13,7 +13,7 @@ const Footer = () => {
           <Col lg="4" className="mb-4" md="6">
             <div className="logo">
               <div>
-                <h1 className="text-white">Multimart</h1>
+                <h1 className="text-white">Rentmart</h1>
               </div>
             </div>
             <p className="footer__text mt-4">
@@ -27,9 +27,7 @@ const Footer = () => {
             <div className="footer__quick-links">
               <h4 className="quick__link-title text-white">Top Categories</h4>
               <ListGroup>
-                <ListGroupItem className="ps-0 boder-0">
-                  <Link to="#">Mobile Phones</Link>
-                </ListGroupItem>
+            
 
                 <ListGroupItem className="ps-0 boder-0">
                   <Link to="#">Modern Sofa</Link>
@@ -39,9 +37,7 @@ const Footer = () => {
                   <Link to="#">Arm Chair</Link>
                 </ListGroupItem>
 
-                <ListGroupItem className="ps-0 boder-0">
-                  <Link to="#">Smart Watches</Link>
-                </ListGroupItem>
+                
               </ListGroup>
             </div>
           </Col>
@@ -77,14 +73,14 @@ const Footer = () => {
                   <span>
                     <i class="ri-map-pin-line"></i>
                   </span>
-                  <p>p.Hoa An, Cam Le, Da Nang</p>
+                  <p>Ahmedabad, Gujrat</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 boder-0 d-flex align-items-center gap-2">
                   <span>
                     <i class="ri-phone-line"></i>
                   </span>
-                  <p>012.345.6789</p>
+                  <p>9876543210</p>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 boder-0 d-flex align-items-center gap-2">
@@ -99,7 +95,7 @@ const Footer = () => {
 
           <Col lg="12">
             <p className="footer__copyright">
-              Copyright {year} develop by HiddenName. All rights reserved.
+              Copyright {year} develop by hackathonTEAM. All rights reserved.
             </p>
           </Col>
         </Row>

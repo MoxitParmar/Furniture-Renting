@@ -63,6 +63,10 @@ const Checkout = () => {
                 </FormGroup>
 
                 <FormGroup className="form__group">
+                  <input type="number" placeholder="Enter Days for rent" />
+                </FormGroup>
+
+                <FormGroup className="form__group">
                   <input type="number" placeholder="Phone number" />
                 </FormGroup>
 
@@ -89,7 +93,7 @@ const Checkout = () => {
                   Total Qty: <span>{totalQty} items</span>
                 </h6>
                 <h6>
-                  Subtotal: <span>${totalAmount}</span>
+                  Subtotal: <span>₹{totalAmount}</span>
                 </h6>
                 <h6>
                   <span>
@@ -97,11 +101,11 @@ const Checkout = () => {
                     <br />
                     free shipping
                   </span>
-                  <span>$0</span>
+                  <span>₹0</span>
                 </h6>
 
                 <h4>
-                  Total Cost: <span>${totalAmount}</span>
+                  Total Cost: <span>₹{totalAmount}</span>
                 </h4>
                 <button 
                   onClick = {placeOrder}

@@ -38,7 +38,7 @@ const AllProducts = () => {
                       </td>
                       <td>{item.title}</td>
                       <td>{item.category}</td>
-                      <td>${item.price}</td>
+                      <td>₹{item.price}</td>
                       <td>
                         <button
                           onClick={() => {

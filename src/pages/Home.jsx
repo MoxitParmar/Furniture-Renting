@@ -131,8 +131,8 @@ const Home = () => {
             <Col lg="12" className="text-center mb-5">
               <h2 className="section__title">New Arrivals</h2>
             </Col>
-            <ProductsList data={mobileProducts} />
-            <ProductsList data={wirelessProducts} />
+            <ProductsList data={trendingProducts} />
+            <ProductsList data={bestsalesProducts} />
           </Row>
         </Container>
       </section>
@@ -143,7 +143,7 @@ const Home = () => {
             <Col lg="12" className="text-center mb-5">
               <h2 className="section__title">Popular in Category</h2>
             </Col>
-            <ProductsList data={popularProducts} />
+            <ProductsList data={trendingProducts} />
           </Row>
         </Container>
       </section>

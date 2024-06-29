@@ -108,7 +108,7 @@ const AddProducts = () => {
                       <span>Price</span>
                       <input
                         type="number"
-                        placeholder="$100"
+                        placeholder="₹100"
                         value={enterPrice}
                         onChange={(e) => setEnterPrice(e.target.value)}
                         required
